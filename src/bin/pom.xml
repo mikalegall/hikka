@@ -91,7 +91,7 @@
             <scope>test</scope>
         </dependency>
 
-			<!-- Tekee Springissä @Entitylle getterit ja setterit jne annotaatiolla @Data-->
+			<!-- Tekee Springiss� @Entitylle getterit ja setterit jne annotaatiolla @Data-->
 		<dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

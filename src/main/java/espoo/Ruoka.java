@@ -1,62 +1,31 @@
 package espoo;
 
+import lombok.Data;
 import javax.persistence.*;
 
-@Entity // This tells Hibernate to make a table out of this class
-@Table(name = "annos") // Tässä voidaan antaa tietokantataulun nimi mikäli luokan nimi on eroava (alias)
+@Entity // Tämä ilmoittaa Hibernatelle, että tee tästä Java-luokasta tietokantataulu. Tässä Java-luokassa on oltava julkinen tai protected-näkyvyydelle
+        // määritelty parametriton konstruktori (oletuskonstruktori riittää), tämä luokka ei voi olla final tai enum (etukäteen määritellyt tyypit omaava),
+        // tälle luokalle täytyy luoda getterit ja setterit
+@Table(name = "annos") // Tässä voidaan antaa tietokantataulun nimi mikäli luokan nimi on eroava eli halutaan käyttää aliasta
+// Hibernate natiivilla ilman nimeämistä oletusarvoinen taulu luotaisiin nimellä EVENT
+@Data // Tekee @Entitylle vaadittavat getterit ja setterit, jotta Spring Data / Hibernate / JPA toimii autogeneroitavan DAO-kerroksen (interface --> repository) kautta
+/*
+<dependency>
+<groupId>org.projectlombok</groupId>
+<artifactId>lombok</artifactId>
+</dependency>
+*/
 public class Ruoka {
 
-    @Id
+    @Id // Tämä määrittää entiteetin identiteetin yhdeksi kentäksi
     @GeneratedValue(strategy= GenerationType.AUTO)
+    // @GeneratedValue(generator = "increment")    // Hibernate natiivilla + alla oleva annotaatio
+    // @GenericGenerator(name = "increment", strategy = "increment")  // Hibernate natiivilla
+
     private int id;
 
-    private String viikonpaiva, sapuska, raakaaine1, raakaaine2, raakaaine3;
+    private String viikonpaiva, raakaaine1, raakaaine2, raakaaine3;
+    @Lob // String on oletusarvoisesti VARCHAR(255), lisäämällä annotaation @Lob tulee tyypiksi TEXT (voi tosin riippua kannasta!)
+    private String sapuska;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getViikonpaiva() {
-        return viikonpaiva;
-    }
-
-    public void setViikonpaiva(String viikonpaiva) {
-        this.viikonpaiva = viikonpaiva;
-    }
-
-    public String getSapuska() {
-        return sapuska;
-    }
-
-    public void setSapuska(String sapuska) {
-        this.sapuska = sapuska;
-    }
-
-    public String getRaakaaine1() {
-        return raakaaine1;
-    }
-
-    public void setRaakaaine1(String raakaaine1) {
-        this.raakaaine1 = raakaaine1;
-    }
-
-    public String getRaakaaine2() {
-        return raakaaine2;
-    }
-
-    public void setRaakaaine2(String raakaaine2) {
-        this.raakaaine2 = raakaaine2;
-    }
-
-    public String getRaakaaine3() {
-        return raakaaine3;
-    }
-
-    public void setRaakaaine3(String raakaaine3) {
-        this.raakaaine3 = raakaaine3;
-    }
 }
