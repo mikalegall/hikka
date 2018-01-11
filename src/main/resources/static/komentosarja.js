@@ -46,30 +46,31 @@ kyselija.onreadystatechange = function () {
                 var raakaaine1 = annos.raakaaine1;
                 var raakaaine2 = annos.raakaaine2;
                 var raakaaine3 = annos.raakaaine3;
+
+                // Luodaan elementtipuun rakenteeseen uusi tekstisolmu ja haetaan
+                // siihen sisältökirjoitusta
+                var solmu = document.createTextNode(viikonpaiva + "na tarjolla: " + sapuska + " (koostuu aineksista: " +
+                    raakaaine1 + ", " + raakaaine2 + " ja " + raakaaine3 + ").");
+
+                // console.log(solmu);
+
+                // Jokaisella silmukoinnilla tehdään uusi kohta järjestämättömään listaan
+                var uusielementti = document.createElement("li");
+                // Jokaiseen listaelementin uuteen kohtaan sijoitetaan tekstisolmu,
+                // jossa on kirjoitusta taulukon sisällöstä
+                uusielementti.appendChild(solmu);
+
+                // Käsiteltävään HTML-elementtiin lisätään uusi
+                // osio listaelementin kohta, jossa on taulukosta
+                // haettu sisältö kapseloituna sisälleen tekstiNodeen,
+                // ikään kuin maatuskanuken tavoin...
+                htmlElementti.appendChild(uusielementti);
+
+                // HTML-sivun muokkaus olisi voitu tehdä myös suoraan, maatuskanuken tavoin, asettamalla lauseet sisäkkäin:
+                // htmlElementti.appendChild(document.createElement("li").appendChild(document.createTextNode(viikonpaiva + ", tarjolla: " + sapuska + " (koostuu aineksista: " + raakaaine1 + ", " + raakaaine2 + " ja " + raakaaine3 + ")."))));
             }
-
-            // Luodaan elementtipuun rakenteeseen uusi tekstisolmu ja haetaan
-            // siihen sisältökirjoitusta
-            var solmu = document.createTextNode(viikonpaiva + ", tarjolla: " + sapuska + " (koostuu aineksista: " +
-                raakaaine1 + ", " + raakaaine2 + " ja " + raakaaine3 + ").");
-
-            // Jokaisella silmukoinnilla tehdään uusi kohta järjestämättömään listaan
-            var uusielementti = document.createElement("li");
-            // Jokaiseen listaelementin uuteen kohtaan sijoitetaan tekstisolmu,
-            // jossa on kirjoitusta taulukon sisällöstä
-            uusielementti.appendChild(solmu);
-
-            // Käsiteltävään HTML-elementtiin lisätään uusi
-            // osio listaelementin kohta, jossa on taulukosta
-            // haettu sisältö kapseloituna sisälleen tekstiNodeen,
-            // ikään kuin maatuskanuken tavoin...
-            htmlElementti.appendChild(uusielementti);
-
-            // HTML-sivun muokkaus olisi voitu tehdä myös suoraan, maatuskanuken tavoin, asettamalla lauseet sisäkkäin:
-            // htmlElementti.appendChild(document.createElement("li").appendChild(document.createTextNode(viikonpaiva + ", tarjolla: " + sapuska + " (koostuu aineksista: " + raakaaine1 + ", " + raakaaine2 + " ja " + raakaaine3 + ")."))));
+        } else {
+            alert("Pyyntö REST-APIin häiriintyi");
         }
-    } else {
-    alert("Pyyntö epäonnistui");
-}
-}
+    }
 }

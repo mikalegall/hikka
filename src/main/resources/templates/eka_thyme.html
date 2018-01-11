@@ -16,7 +16,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="muotoilut.css" />
+    <!--<link rel="stylesheet" href="muotoilut.css" />-->
 
   <title>Otsikko</title>
 </head>
@@ -26,12 +26,10 @@
 <table class="table-bordered table-striped">
     <tr>
         <th>Viikonpaiva&#160;&#160;</th>
-        <!--<th>&#160;&#160;</th>-->
         <th>Lounas</th>
     </tr>
     <tr th:each="alkio : ${paivat}">
         <td th:text="${alkio.viikonpaiva}"></td>
-        <!--<td>&#160;&#160;</td>-->
         <td th:text="${alkio.sapuska}"></td>
     </tr>
 </table>
