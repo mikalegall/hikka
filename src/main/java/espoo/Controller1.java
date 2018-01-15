@@ -11,8 +11,9 @@ Interface'in perusteella Spring luo uuden Beanin, jonka avulla tietokantaa voi k
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-
+@EnableSwagger2 // Generate documentation for a Spring REST API http://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
 // Tarjotaan REST-rajapinta
 // https://spring.io/guides/tutorials/react-and-spring-data-rest/
 @RestController
