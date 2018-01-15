@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fi" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+
+	<!--Asetetaan leveys laitteen leyden mukaiseksi-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--<link rel="stylesheet" href="muotoilut.css" />-->
+
+  <title>Otsikko</title>
+</head>
+
+<body>
+
+<table class="table-bordered table-striped">
+    <tr>
+        <th>Viikonpaiva&#160;&#160;</th>
+        <th>Lounas</th>
+    </tr>
+    <tr th:each="alkio : ${paivat}">
+        <td th:text="${alkio.viikonpaiva}"></td>
+        <td th:text="${alkio.sapuska}"></td>
+    </tr>
+</table>
+
+</body>
+
+</html>
