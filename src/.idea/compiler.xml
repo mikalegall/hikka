@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="src" />
+        <module name="Mikan-Maven-malli" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="src" target="1.8" />
+      <module name="Mikan-Maven-malli" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

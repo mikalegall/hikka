@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/src.iml" filepath="$PROJECT_DIR$/src.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mikan-Maven-malli.iml" filepath="$PROJECT_DIR$/Mikan-Maven-malli.iml" />
     </modules>
   </component>
 </project>
